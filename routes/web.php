@@ -27,11 +27,13 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/mail-verification', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 
 
 
 Route::group(['middleware' => ['admin']], function() {
     Route::get('/admin/home', [HomeController::class, 'index']);
 });
+
 
 
